@@ -21,10 +21,7 @@ Space Complexity: O(n)
 '''
 
 def recursive_factorial(n):
-    if n == 0 or n == 1:
-        return 1
-    
-    return n * recursive_factorial(n-1)
+    return 1 if n in (0, 1) else n * recursive_factorial(n-1)
 
 def main():
     n = int(input("Enter a number:"))
