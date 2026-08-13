@@ -3,6 +3,10 @@
 '''
 Time Complexity: O(n * Amount)
 Space Complexity: O(Amount)
+
+where,
+n = number of coin denominations
+Amount = total amount to make
 '''
 
 INF = float('inf')
@@ -16,10 +20,7 @@ def coin_change(coins, n, amount):
             if coins[j] <= i:
                 dp[i] = min(dp[i], dp[i - coins[j]] + 1)
     
-    if dp[amount] == INF:
-        return -1
-    
-    return dp[amount]
+    return -1 if dp[amount] == INF else dp[amount]
 
 def main():
     n = int(input("Enter the number of coin denominations: "))
@@ -34,6 +35,6 @@ def main():
         print("\nChange cannot be made.")
     else:
         print("\nMinimum number of coins required=",ans)
-          
+
 if __name__ == "__main__":
-    main()    
+    main()
