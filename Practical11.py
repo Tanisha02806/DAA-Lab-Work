@@ -8,16 +8,18 @@ where,
 V = number of vertices
 '''
 
+from itertools import product
+
 INF = 9999
 
 
 def floyd_warshall(graph, n):
     # Floyd-Warshall Algorithm
-    for k in range(n):
-        for i in range(n):
-            for j in range(n):
-                if graph[i][k] + graph[k][j] < graph[i][j]:
-                    graph[i][j] = graph[i][k] + graph[k][j]
+    for k, i, j in product(range(n), repeat=3):
+        if graph[i][k] != INF and graph[k][j] != INF:
+            distance = graph[i][k] + graph[k][j]
+            if distance < graph[i][j]:
+                graph[i][j] = distance
 
 
 def main():

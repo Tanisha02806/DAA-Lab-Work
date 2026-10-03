@@ -44,7 +44,7 @@ def main():
         edges.append(Edge(u, vtx, w))
 
     # Initialize Parent
-    parent = [i for i in range(v)]
+    parent = list(range(v))
 
     # Sort edges by weight
     sort_edges(edges)
